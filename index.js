@@ -21,17 +21,32 @@ topBtn.addEventListener("click", () => {
 
 const themeBtn = document.getElementById("themeToggle");
 
+const currentTheme = localStorage.getItem("theme");
+
+if(currentTheme === "dark"){
+    document.body.classList.add("dark-mode");
+    themeBtn.textContent = "☀️";
+}
+
 themeBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark-mode");
 
     if(document.body.classList.contains("dark-mode")){
+
+        localStorage.setItem("theme","dark");
         themeBtn.textContent = "☀️";
+
     }else{
+
+        localStorage.setItem("theme","light");
         themeBtn.textContent = "🌙";
+
     }
 
 });
+
+
 
 const sections = document.querySelectorAll("section");
 
@@ -51,6 +66,29 @@ sections.forEach(section => {
     section.classList.add("hidden");
     observer.observe(section);
 });
+
+const slider = document.getElementById("skillsSlider");
+
+document.getElementById("nextBtn")
+.addEventListener("click", () => {
+
+    slider.scrollBy({
+        left:300,
+        behavior:"smooth"
+    });
+
+});
+
+document.getElementById("prevBtn")
+.addEventListener("click", () => {
+
+    slider.scrollBy({
+        left:-300,
+        behavior:"smooth"
+    });
+
+});
+
 
 
 
