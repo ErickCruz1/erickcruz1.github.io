@@ -20,28 +20,30 @@ topBtn.addEventListener("click", () => {
 });
 
 const themeBtn = document.getElementById("themeToggle");
+const icon = themeBtn.querySelector("i");
 
 const currentTheme = localStorage.getItem("theme");
 
 if(currentTheme === "dark"){
     document.body.classList.add("dark-mode");
-    themeBtn.textContent = "☀️";
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+    }else{
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
 }
 
+
 themeBtn.addEventListener("click", () => {
-
     document.body.classList.toggle("dark-mode");
-
     if(document.body.classList.contains("dark-mode")){
-
         localStorage.setItem("theme","dark");
-        themeBtn.textContent = "☀️";
-
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
     }else{
-
         localStorage.setItem("theme","light");
-        themeBtn.textContent = "🌙";
-
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
     }
 
 });
