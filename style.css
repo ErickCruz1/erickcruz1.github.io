@@ -312,6 +312,10 @@ p{
     transform: translateY(2px);
 }
 
+.contact-item a:hover .fa-whatsapp{
+    color:#25D366;
+}
+
 @media (max-width:768px){
     nav{
         flex-direction:column;
@@ -323,6 +327,10 @@ p{
     nav ul{
         flex-wrap:wrap;
         justify-content:center;
+    }
+
+    #contact a{
+    text-decoration: none;
     }
 
     .skill-card{
@@ -371,6 +379,10 @@ footer{
     text-align:center;
     padding:30px;
     background:#020617;
+}
+
+.footer-text{
+    color: #f8fafc;
 }
 
 .hidden{
